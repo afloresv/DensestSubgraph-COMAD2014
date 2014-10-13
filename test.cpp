@@ -19,7 +19,7 @@ Graph G;
 Natural V, E, T;
 
 int *D, *pos, min_pos = 0;
-Node *order, cnode = 0U;
+Node *order, cnode = 0;
 map<Node,Node> idx;
 
 bool *S;
@@ -70,7 +70,7 @@ void ReadGraph() {
 	}
 
 	if (isDigraph) {
-		E = 0U;
+		E = 0;
 		for (int i=0 ; i<T ; i++) {
 			set<Node> s(G[i].begin(),G[i].end());
 			G[i] = vector<Node>(s.begin(),s.end());
@@ -185,7 +185,7 @@ int main() {
 	ReadGraph();
 	cout << "Initial density: " << density << " (" << V << "," << E << ")" << endl;
 
-	while (E>0U) {
+	while (E>0) {
 		if (!BatchRemoval()) {
 			CheckDensity();
 			Node v = order[min_pos];
