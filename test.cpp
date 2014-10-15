@@ -126,28 +126,20 @@ void RemoveNode(Node v) {
 // | Instead of removing one node per iteration, this    |
 // | modification implements a method for batch removal. |
 // | Given the set of n nodes with degree <= k in the    |
-// | current graph, in the worst case we remove n nodes  |
-// | and k*n edges. The density of the remaining graph   |
-// | is greater or equal than the density of the current |
-// | graph (or any other in between) 
-// | 
-// | 
-// | 
-// | 
-// | 
+// | current graph G = (V,E), in the worst case we       |
+// | remove n nodes and k*n edges. The density of the    |
+// | remaining graph is greater or equal than the        |
+// | density of the current graph if |E| >= k*|V|.       |
 // +-----------------------------------------------------+
 
 bool BatchRemoval() {
 
 	Natural _V = V;
-	int rd = 1;
-	////cout << "Batch" << endl;
 	while (true) {
-		////cout << E << " " << V << endl;
-		int rd = E/V;
-		if (D[order[min_pos]] > rd) break;
-		// Batch removal of nodes with degree <= rd
-		for (int i=min_pos ; i<T && D[order[i]]<=rd ; i++) {
+		int k = E/V;
+		if (D[order[min_pos]] > k) break;
+		// Batch removal of nodes with degree <= k
+		for (int i=min_pos ; i<T && D[order[i]]<=k ; i++) {
 			V--;
 			E -= D[order[i]];
 			D[order[i]] = 0;
