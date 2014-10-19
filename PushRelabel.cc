@@ -1,22 +1,10 @@
 // Adjacency list implementation of FIFO push relabel maximum flow
-// with the gap relabeling heuristic.  This implementation is
-// significantly faster than straight Ford-Fulkerson.  It solves
-// random problems with 10000 vertices and 1000000 edges in a few
-// seconds, though it is possible to construct test cases that
-// achieve the worst-case.
-//
-// Running time:
-//     O(|V|^3)
-//
-// INPUT: 
-//     - graph, constructed using AddEdge()
-//     - source
-//     - sink
-//
-// OUTPUT:
-//     - maximum flow value
-//     - To obtain the actual flow values, look at all edges with
-//       capacity > 0 (zero capacity edges are residual edges).
+// with the gap relabeling heuristic.
+// Downloaded from http://web.stanford.edu/~liszt90/acm/notebook.html#file3
+// and modified by Alejandro Flores: reducing the memory requirements and
+// adjusting it to implement the Densest Subgraph algorithm proposed by
+// A. V. Goldberg at 'Finding a Maximum Density Subgraph'
+// http://www.eecs.berkeley.edu/Pubs/TechRpts/1984/CSD-84-171.pdf
 
 #include <cmath>
 #include <vector>
