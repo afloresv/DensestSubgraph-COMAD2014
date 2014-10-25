@@ -16,12 +16,17 @@ int main(int argc, char *argv[]) {
 
 	ReadGraph(argv[argc-1],G);
 
+	cout << G.E << " " << G.V << endl;
+
 	Subgraph S1(G);
 	GreedyRemoval R(G,S1);
 	R.BatchRemoval();
 	R.CheckDensity();
 
 	G = S1.Shrink();
+
+	cout << G.E << " " << G.V << endl;
+
 	Subgraph S2(G), S(G);
 	PushRelabel P(G,S2);
 
