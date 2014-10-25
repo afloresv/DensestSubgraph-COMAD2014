@@ -74,7 +74,7 @@ class GreedyRemoval {
 	}
 
 	bool BatchRemoval() {
-		int _V = V;
+		int _V=V, mp=minpos;
 		while (E>0) {
 			int k = E/V;
 			if (degree[order[minpos]] > k) break;
@@ -89,7 +89,7 @@ class GreedyRemoval {
 						degree[G[order[i]][j]]--;
 				}
 			}
-			sort(order,order+G.V,CompNodes);
+			sort(order+mp,order+G.V,CompNodes);
 			for (int i=0 ; i<G.V ; i++)
 				pos[order[i]] = i;
 			for ( ; minpos<G.V && degree[order[minpos]]==0 ; minpos++, V--);
