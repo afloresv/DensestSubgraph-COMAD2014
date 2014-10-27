@@ -19,8 +19,13 @@ int main(int argc, char *argv[]) {
 	Subgraph S1(G);
 	GreedyRemoval R(G,S1);
 
-	while (R.V>10000 && (R.BatchRemoval() || R.SingleRemoval()))
+	if (G.E>1000000 && G.Density()>20.0) {
+		while (R.V>10000 && (R.BatchRemoval() || R.SingleRemoval()))
+			R.CheckDensity();
+	} else {
+		R.BatchRemoval();
 		R.CheckDensity();
+	}
 	G = S1.Shrink();
 
 	Subgraph S2(G), S(G);
