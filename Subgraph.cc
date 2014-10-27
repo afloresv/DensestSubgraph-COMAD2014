@@ -47,8 +47,33 @@ class Subgraph {
 	double Density() { return (double)E/V; }
 
 	void Print() {
-		cout << Density() << endl;
-		// PRINT GRAPH HERE
+
+		printf("%f\t{",Density());
+
+		int comma = false;
+		for (int i=0 ; i<G.V ; i++) if (S[i]) {
+			printf((comma ? ",%d" : "%d"),G.ExternalID(i));
+			comma = true;
+		}
+
+		printf("}\t{");
+
+		comma = false;
+		for (int i=0 ; i<G.V ; i++) {
+			if (!S[i]) continue;
+			for (int j=G[i].size()-1 ; j>=0 ; j--) {
+				if (!S[G[i][j]]) continue;
+				printf(
+					(comma ? ",(%d,%d)" : "(%d,%d)"),
+					G.ExternalID(i),
+					G.ExternalID(G[i][j])
+				);
+				comma = true;
+			}
+			S[i] = false;
+		}
+
+		printf("}\n");
 	}
 
 	Graph Shrink() {
