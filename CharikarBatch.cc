@@ -17,14 +17,8 @@ int main(int argc, char *argv[]) {
 	Subgraph S(G);
 	GreedyRemoval R(G,S);
 
-	while (R.E > 0) {
-		if (!R.BatchRemoval()) {
-			if (R.E <= 0) break;
-			R.CheckDensity();
-			R.RemoveNext();
-			R.CheckDensity();
-		}
-	}
+	while (R.BatchRemoval() || R.SingleRemoval())
+		R.CheckDensity();
 
 	S.Print();
 

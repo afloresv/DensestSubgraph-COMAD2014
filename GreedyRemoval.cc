@@ -54,7 +54,9 @@ class GreedyRemoval {
 			pos[order[i]] = i;
 	}
 
-	void RemoveNext() {
+	bool SingleRemoval() {
+		if (minpos==G.V)
+			return false;
 		int v = order[minpos];
 		V--;
 		E -= degree[v];
@@ -71,6 +73,7 @@ class GreedyRemoval {
 				ReorderNode(G[v][i]);
 			}
 		}
+		return true;
 	}
 
 	bool BatchRemoval() {
