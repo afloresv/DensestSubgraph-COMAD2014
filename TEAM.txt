@@ -1,0 +1,11 @@
+Team LANIAKEA
+=============
+
++---------------------+-------------------------------------+
+| Name & Surname      | E-mail                              |
++---------------------+-------------------------------------+
+| Alejandro Flores V. | alejandroflores.af@gmail.com        |
+| Maria-Esther Vidal  | mariaesther.vidal.serodio@gmail.com |
+| Aditya Mogadala     | aditya.mogadala@kit.edu             |
+| Divyesh Chandra     | divyesh1234@gmail.com               |
++---------------------+-------------------------------------+
