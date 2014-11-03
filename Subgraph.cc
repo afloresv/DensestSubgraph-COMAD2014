@@ -49,7 +49,7 @@ class Subgraph {
 
 	void Print() {
 
-		printf("%f\t{",Density());
+		printf("1\n%f\t{",Density());
 
 		int comma = false;
 		for (int i=0 ; i<G.V ; i++) if (S[i]) {
