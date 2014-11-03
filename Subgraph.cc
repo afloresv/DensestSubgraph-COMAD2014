@@ -51,7 +51,7 @@ class Subgraph {
 
 		printf("1\n%f\t{",Density());
 
-		int comma = false;
+		bool comma = false;
 		for (int i=0 ; i<G.V ; i++) if (S[i]) {
 			printf((comma ? ",%d" : "%d"),G.ExternalID(i));
 			comma = true;
